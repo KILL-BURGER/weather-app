@@ -51,7 +51,9 @@ function App() {
 
   useEffect(() => {
     if (city === "") {
+      setLoading(true);
       getCurrentLocation();
+      setLoading(false);
     } else {
       getWeatherByCity();
     }
