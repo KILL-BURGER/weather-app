@@ -17,6 +17,7 @@ function App() {
     navigator.geolocation.getCurrentPosition(async (position) => {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
+
       getWeatherByCurrentLocation(lat, lon);
     });
   };
@@ -50,13 +51,13 @@ function App() {
   };
 
   useEffect(() => {
-    setLoading(true);
     if (city === "") {
+      console.log("현재날씨.");
       getCurrentLocation();
     } else {
+      console.log("지역날씨");
       getWeatherByCity();
     }
-    setLoading(false);
   }, [city]);
 
   return (
